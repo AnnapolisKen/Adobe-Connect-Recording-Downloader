@@ -12,6 +12,8 @@ For PHP programs the institution-dependent constants are in the file int_config.
 
 For Python (Sikuli) programs the institution-dependent constants are in the file rec_config.py
 
+After you edit the rec_config.py file, you need to take it and everything in the Sikuli Distribution folder (but not the folder itself!) and zip it to a zip file, then rename that file AdobeRec.skl, changing the file extension. Now you have your Sikuli file.
+
 Before attempting to run the programs, you should set up a MYSQL database with the following tables:
 
 -- PHP Version: 5.3.26
