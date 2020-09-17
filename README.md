@@ -9,6 +9,16 @@ This program finds new recordings in an Adobe Connect instance and automatically
 The PHP programs populate a MYSQL database. A Windows Batch file calls the Sikuli scripts that launch up to five recordings simultaneously in Adobe Connect, and then stores the recordings in folders named after the Adobe Connect meeting rooms. After it finishes downloading all the pending recordings in the hopper, it launches the PHP program to check for new recordings. It continues to check for new recordings every hour or two.
 
 For PHP programs the institution-dependent constants are in the file int_config.php
+Here are some notes on the constants there:
+The ADOBE_BRAND is what you will be calling the service to your users. Some places rebrand as "Capitol Connect". Probably "Adobe Connect" is the value you want.
+
+The other values are all SCOs (which are Shareable Content Objects and represent meetings, courses, and just about any content that can be created on Adobe Connect. https://helpx.adobe.com/adobe-connect/webservices/getting-started-connect-web-services.html) that are unique to your instance of Adobe Connect.
+1. Essentially, there is one folder that houses all the meetings in your instance.  Use that folder SCO as ADOBE_MFOLD. Alternatively, if you just want to work with a subset of meetings, create a folder for them and use that folder SCO.
+2. Create a folder for deleted meeting and use its sco for ADOBE_DFOLD
+3. Create a folder for unassigned meetings and use its sco for ADOBE_UFOLD
+4. Create a user named 'breakout' with admin hosting permissions for all meetings and put its SCO in ADOBE_BRK
+5. ADOBE_ADM holds all the SCOs of users who you want the program to automatically grant hosting/viewing privileges when it creates a meeting. The SCO numbers are separated by a space in ADOBE_ADM.
+
 
 For Python (Sikuli) programs the institution-dependent constants are in the file rec_config.py
 
